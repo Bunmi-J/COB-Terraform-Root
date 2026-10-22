@@ -31,9 +31,7 @@ module "cob_iam" {
   username                  = "cob_data_engineer"
   athena_user               = var.athena_user
   allowed_principal_arns    = var.athena_user
-  #"arn:aws:iam::469935552963:user/Developer-BJ"
-  #"arn:aws:iam::<account-id>:user/bunmi",
-  #"arn:aws:iam::<account-id>:role/data-engineer",
+  
 
 
 
