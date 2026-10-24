@@ -20,7 +20,7 @@ locals {
 
 module "cob_iam" {
   #source = "../modules/iam"
-  source = "git::https://github.com/Bunmi-J/COB-Terraform-Root.git//modules/iam?ref=v1.0.0"
+  source = "git::https://github.com/Bunmi-J/COB-Modules.git//modules/iam?ref=v1.0.0"
 
   project_name              = "cob-project"
   environment               = "dev"
@@ -40,7 +40,7 @@ module "cob_iam" {
 
 module "cob_storage" {
   #source = "../modules/s3"
-  source = "git::https://github.com/Bunmi-J/COB-Terraform-Root.git//modules/s3?ref=v1.0.0"
+  source = "git::https://github.com/Bunmi-J/COB-Modules.git//modules/s3?ref=v1.0.0"
 
   project_name         = "cob-project"
   environment          = "dev"
@@ -58,7 +58,7 @@ module "cob_storage" {
 
  module "cob_glue" {
   #source = "../modules/glue"
-  source = "git::https://github.com/Bunmi-J/COB-Terraform-Root.git//modules/glue?ref=v1.0.0"
+  source = "git::https://github.com/Bunmi-J/COB-Modules.git//modules/glue?ref=v1.0.0"
 
   cob-crawler_name      = "cob_crawler"
   catalog_database_name = "cob_catalog_database"
@@ -73,7 +73,7 @@ module "cob_storage" {
 
 module "cob_athena" {
   #source              = "../modules/athena"
-  source = "git::https://github.com/Bunmi-J/COB-Terraform-Root.git//modules/athena?ref=v1.0.0"
+  source = "git::https://github.com/Bunmi-J/COB-Modules.git//modules/athena?ref=v1.0.0"
 
   athena_data_catalog = "cob_athena_catalog"
   #bucket_id  = module.cob_storage.s3-ids
