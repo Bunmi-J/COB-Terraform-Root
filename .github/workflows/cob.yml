@@ -112,9 +112,9 @@ jobs:
       #run: terraform apply -auto-approve -input=false
       
        
- terraform-apply:
+  terraform-apply:
    name: "Terraform Apply"
-   needs: terraform-plan
+   needs: cob-terraform
    runs-on: ubuntu-latest
    environment: dev   # requires approval
 
