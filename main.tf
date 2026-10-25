@@ -61,9 +61,9 @@ module "cob_storage" {
   #source = "../modules/glue"
   source = "git::https://github.com/Bunmi-J/COB-Modules.git//glue?ref=v1.0.0"
 
-  cob-crawler_name      = "cob_crawler"
-  catalog_database_name = "cob_catalog_database"
-  catalog_table_name    = "cob_catalog_table"
+  cob-crawler_name      = "cob_crawler-root"
+  catalog_database_name = "cob_catalog_database_root"
+  catalog_table_name    = "cob_catalog_table_root"
   #catalog_name = "cob_catalog"
   #cob_glue_name = "cob-glue"
   glue_role_arn  = module.cob_iam.glue_role_arn
@@ -76,7 +76,7 @@ module "cob_athena" {
   #source              = "../modules/athena"
   source = "git::https://github.com/Bunmi-J/COB-Modules.git//athena?ref=v1.0.0"
 
-  athena_data_catalog = "cob_athena_catalog"
+  athena_data_catalog = "cob_athena_catalog_root"
   #bucket_id  = module.cob_storage.s3-ids
   #athena_database_name = module.cob_glue.catalog_database_name
   consumer_name = "Data_Engineering"
