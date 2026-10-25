@@ -22,7 +22,7 @@ module "cob_iam" {
   #source = "../modules/iam"
   source = "git::https://github.com/Bunmi-J/COB-Modules.git//iam?ref=v1.0.0"
 
-  project_name              = "cob-project"
+  project_name              = "cob-root-project"
 
   environment               = "dev"
   resource_name             = local.resource_name
@@ -80,6 +80,6 @@ module "cob_athena" {
   #bucket_id  = module.cob_storage.s3-ids
   #athena_database_name = module.cob_glue.catalog_database_name
   consumer_name = "Data_Engineering"
-  project_name  = "cob-project"
+  project_name  = "cob-root-project"
   environment   = "dev"
 }
