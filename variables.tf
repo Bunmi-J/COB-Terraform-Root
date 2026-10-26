@@ -28,3 +28,8 @@ variable "athena_user" {
   description = "List of IAM users that can access the Athena"
   type        = list(string)
 }
+
+variable "data_engineer_role_arn" {
+  description = "ARN of the IAM role Terraform should assume"
+  type        = string
+}

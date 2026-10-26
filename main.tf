@@ -10,7 +10,13 @@ terraform {
 # Configure the AWS Provider
 provider "aws" {
   region = var.aws_region
+
+  assume_role {
+    role_arn = var.data_engineer_role_arn
+  }
 }
+
+
 
 locals {
   resource_name = "${var.project_name}-${var.environment}"
