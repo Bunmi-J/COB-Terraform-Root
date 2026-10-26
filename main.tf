@@ -22,7 +22,7 @@ module "cob_iam" {
   #source = "../modules/iam"
   source = "git::https://github.com/Bunmi-J/COB-Modules.git//iam?ref=v1.0.0"
 
-  project_name              = "cob-root-project"
+  project_name = "cob-root-project"
 
   environment               = "dev"
   resource_name             = local.resource_name
@@ -33,7 +33,7 @@ module "cob_iam" {
   username                  = "cob_data_engineer"
   athena_user               = var.athena_user
   allowed_principal_arns    = var.athena_user
-  
+
 
 
 
@@ -57,7 +57,7 @@ module "cob_storage" {
 }
 
 
- module "cob_glue" {
+module "cob_glue" {
   #source = "../modules/glue"
   source = "git::https://github.com/Bunmi-J/COB-Modules.git//glue?ref=v1.0.0"
 
