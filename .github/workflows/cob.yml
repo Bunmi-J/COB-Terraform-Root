@@ -51,6 +51,7 @@ on:
 
 permissions:
   contents: read
+  id-token: write
 
 jobs:
   cob-terraform:
@@ -77,9 +78,11 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v4
       with:
-         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-         aws-region: ${{ secrets.AWS_REGION }}    
+         role-to-assume: arn:aws:iam::469935552963:role/cob-terraform-github-actions
+         aws-region: ${{ secrets.AWS_REGION }} 
+
+    - name: Verify AWS identity
+      run: aws sts get-caller-identity        
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
@@ -127,10 +130,12 @@ jobs:
      - name: Configure AWS Credentials
        uses: aws-actions/configure-aws-credentials@v4
        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::469935552963:role/cob-terraform-github-actions
           aws-region: ${{ secrets.AWS_REGION }}
     
+     - name: Verify AWS identity
+       run: aws sts get-caller-identity
+
      - name: Terraform Init
        run: terraform init   
 
