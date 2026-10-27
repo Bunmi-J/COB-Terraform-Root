@@ -3,4 +3,4 @@ athena_user = [
 ]
 
 #athena_user = ["arn:aws:iam::469935552963:role/system/cob-root-project-dev-data-engineer"]
-data_engineer_role_arn = "arn:aws:iam::469935552963:role/system/cob-project-dev-data-engineer"
+data_engineer_role_arn = "arn:aws:iam::469935552963:role/system/cob-root-project-dev-data-engineer"
