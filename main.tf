@@ -12,8 +12,8 @@ provider "aws" {
   region = var.aws_region
 
   #assume_role {
- #   role_arn = var.data_engineer_role_arn
- # }
+  #   role_arn = var.data_engineer_role_arn
+  # }
 }
 
 
