@@ -140,5 +140,6 @@ jobs:
           name: cobplan
       
      - name: Terraform Apply
-       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-       run: terraform apply -auto-approve cobplan
+       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       run: terraform apply cobplan
+       #run: terraform apply -auto-approve cobplan
