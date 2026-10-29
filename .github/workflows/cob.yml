@@ -54,7 +54,7 @@ permissions:
   id-token: write
 
 jobs:
-  cob-terraform:
+  cob-plan:
     name: 'Terraform-Root'
     runs-on: ubuntu-latest
     environment: dev
@@ -107,18 +107,13 @@ jobs:
         name: cobplan
         path: cobplan
 
-      # On push to "main", build or change infrastructure according to Terraform configuration files
-      # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
-    #- name: Terraform Apply
-      #if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
-      #run: terraform apply -auto-approve -input=false
-      
+            
        
   terraform-apply:
    name: "Terraform Apply"
-   needs: cob-terraform
+   needs: cob-plan
    runs-on: ubuntu-latest
-   environment: dev   # requires approval
+   environment: prod   # requires approval
 
    steps:
      - name: Checkout
@@ -145,5 +140,6 @@ jobs:
           name: cobplan
       
      - name: Terraform Apply
-       if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-       run: terraform apply -auto-approve cobplan
+       #if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+       run: terraform apply cobplan
+       #run: terraform apply -auto-approve cobplan
