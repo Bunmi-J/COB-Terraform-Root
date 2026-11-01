@@ -8,8 +8,17 @@ Add a resource or change a configuration. Open a pull request, inspect the check
 
 ![Screenshot](../Images/valid-infrastructure.jpg)
 
+
 **COB Apply**
+
 ![Screenshot](../Images/valid-applied-infrastructure.jpg)
+
+
+**Terraform Apply**
+
+![Screenshot](../Images/terraform-apply.jpg)
+
+
 
 
 ### - Invalid Terraform
