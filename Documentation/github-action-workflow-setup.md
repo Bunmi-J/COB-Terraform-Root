@@ -1,8 +1,11 @@
  # Github Actions Workflow Setup
+
  This workflow installs the latest version of Terraform CLI and configures the Terraform CLI configuration file with github action Open ID Connect (OIDC) API token mechanism for AWS Cloud services.  On pull request events, this workflow will run `terraform init`, `terraform fmt`, 'terraform validate'and `terraform plan` (speculative plan via AWS Cloud). On push events to the "main" branch, `terraform apply` will be executed.
 
 ### Documentation for `hashicorp/setup-terraform` is located here:
+
  https://github.com/hashicorp/setup-terraform
+
 #
  --  To use this workflow, you will need to complete the following setup steps.
 #
@@ -36,6 +39,7 @@
 #
 #
 ## 2. Generate a github action OIDC token.
+
  Github Actions uses OIDC to generate a short-lived token that proves the workflow's authenticity, allowing access to AWS resources without needing to store long-lived credentials. This process ensures that access tokens are allocated predictably, and any workflow from an unauthorized repository is blocked automatically.
 
 **OIDC Configuration Details**
@@ -68,6 +72,7 @@ When the JWT is created, an audience needs to be specified. Normally, you would 
     aws-region: cn-northwest-1
     role-to-assume: arn:aws-cn:iam::123456789100:role/my-github-actions-role
 ```
+
 **Configuring IAM to trust GitHub**
 
 To use GitHub's OIDC provider, you must first set up federation in your AWS account. This involves creating an IAM Identity Provider that trusts GitHub's OIDC endpoint. You can create an IAM Identity Provider in the AWS Management Console by specifying the following details:
@@ -140,4 +145,5 @@ Note: The value of the sub claim may be different depending on the workflow and 
        
  ```
 ###   Documentation:
+
        - https://github.com/aws-actions/configure-aws-credentials#configure-aws-credentials       
